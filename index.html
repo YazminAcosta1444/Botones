@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de LED</title>
 </head>
 <body>
-    <head><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no\">
-        <title>Control Led html y esp32</title>
-        <form action='/' method='get'>
-        <button type='submit' name='led1' value='on'>True</button>
-        <button type='submit' name='led1' value='off'>False</button>
-        </form>
+  <h1>Control de LED</h1>
+  <button onclick="encenderLED()">Encender LED</button>
+  <button onclick="apagarLED()">Apagar LED</button>
+
+  <script>
+    function encenderLED() {
+      fetch('/on')
+        .then(response => console.log(response))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function apagarLED() {
+      fetch('/off')
+        .then(response => console.log(response))
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
 </body>
 </html>
-<html>
